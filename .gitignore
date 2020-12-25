@@ -1,0 +1,14 @@
+!.github
+*.cache
+*.local
+*.log
+*.map
+.DS_Store
+.next
+.vercel
+.vim
+build
+coverage
+node_modules
+out
+report.*
