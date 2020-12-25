@@ -6,7 +6,6 @@
   "scripts": {
     "build": "next build && next export",
     "dev": "next dev",
-    "deploy": "gh-pages -d out",
     "serve": "next start"
   },
   "dependencies": {
@@ -18,7 +17,6 @@
     "@types/node": "14.14.10",
     "@types/react": "17.0.0",
     "autoprefixer": "10.0.4",
-    "gh-pages": "3.1.0",
     "postcss": "8.1.14",
     "prettier": "2.2.1",
     "tailwindcss": "2.0.1",

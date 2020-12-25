@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Animal from '../components/Animal'
+import Attribution from '../components/Attribution'
 import Color from '../components/Color'
 import animals from '../data/animals.json'
 import colors from '../data/colors.json'
@@ -8,14 +9,13 @@ import { scrollToHash } from '../lib/scroll'
 
 /*
  * TODO:
- * Deploy!
- * Add exit screen unsplash attribution
+ * DNS!
  * Use virtual list @see notes
  * Scroll snap start
  */
 
 function LandingPage() {
-  const [thing] = useState<'animals' | 'colors'>('colors')
+  const [thing] = useState<'animals' | 'colors'>('animals')
   const [isGrid, setIsGrid] = useState(true)
 
   const collection = useMemo(
@@ -53,6 +53,7 @@ function LandingPage() {
           </a>
         ))}
       </div>
+      <Attribution />
     </main>
   )
 }
