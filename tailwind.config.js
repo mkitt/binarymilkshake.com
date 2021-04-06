@@ -25,17 +25,14 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       const components = {
-        ':root': {
-          '--reach-dialog': '1',
-        },
         // body: {
         //   scrollSnapType: 'y mandatory',
         //   opacity: 1,
         // },
-        '.scroll-snap-panel': {
-          scrollSnapAlign: 'start',
-          scrollPadding: '50%',
-        },
+        // '.scroll-snap-panel': {
+        //   scrollSnapAlign: 'start',
+        //   scrollPadding: '50%',
+        // },
       }
       addComponents(components)
     }),

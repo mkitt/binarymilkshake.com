@@ -1,61 +1,53 @@
+import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Animal from '../components/Animal'
 import Attribution from '../components/Attribution'
 import Color from '../components/Color'
-import animals from '../data/animals.json'
-import colors from '../data/colors.json'
 import { scrollToHash } from '../lib/scroll'
+import animals from '../public/data/animals.json'
+import colors from '../public/data/colors.json'
 
 /*
  * TODO:
- * DNS!
- * Use virtual list @see notes
+ * Use virtual list
  * Scroll snap start
+ * Installable PWA
  */
 
-function LandingPage() {
+function LandingPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const [thing] = useState<'animals' | 'colors'>('animals')
-  const [isGrid, setIsGrid] = useState(true)
+  const [isGrid, setGrid] = useState(true)
 
-  const collection = useMemo(
-    () => (thing === 'animals' ? animals : Object.keys(colors)),
-    [thing],
-  )
+  const Component = thing === 'animals' ? Animal : Color
+  const collection = thing === 'animals' ? animals : props.colorKeys
+  const btn = isGrid ? 'flex-grow w-32 h-32' : 'flex w-screen h-screen'
+  const fn = () => (isGrid ? setGrid(false) : setGrid(true))
 
-  const btn = useMemo(
-    () => (isGrid ? 'flex-grow w-32 h-32' : 'flex w-screen h-screen'),
-    [isGrid],
-  )
-
-  const Comp = useMemo(() => (thing === 'animals' ? Animal : Color), [thing])
-  const full = useCallback(() => setIsGrid(false), [])
-  const grid = useCallback(() => setIsGrid(true), [])
-
-  useEffect(() => scrollToHash(window.location.hash), [])
+  useEffect(() => scrollToHash(globalThis.location?.hash), [])
 
   return (
     <main className="min-h-screen min-w-screen" role="main">
       <Head>
         <title>Binary Milkshake | {thing}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="flex flex-wrap">
-        {collection.map((k) => (
-          <a
-            id={k}
-            className={btn}
-            key={k}
-            href={`/#${k}`}
-            onClick={isGrid ? full : grid}
-          >
-            <Comp subject={k} />
+        {collection.map((k, i) => (
+          <a id={k} className={btn} href={`/#${k}`} key={k + i} onClick={fn}>
+            <Component subject={k} />
           </a>
         ))}
       </div>
       <Attribution />
     </main>
   )
+}
+
+// -------------------------------------
+
+export async function getStaticProps() {
+  const colorKeys = Object.keys(colors)
+  return { props: { colorKeys } }
 }
 
 export default LandingPage
