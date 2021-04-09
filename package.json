@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build && next export",
     "dev": "next dev",
-    "deploy": "gh-pages --branch site --dist out --dotfiles --no-history",
+    "deploy": "gh-pages --branch site --dist out --dotfiles",
     "serve": "next start"
   },
   "dependencies": {
