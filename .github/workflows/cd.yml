@@ -24,8 +24,14 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - name: yarn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           yarn deploy -u "github-actions-bot <support+actions@github.com>"
+      - name: purge CloudFlare cache
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+        run: >-
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE}/purge_cache" -H "Authorization: Bearer ${CLOUDFLARE_TOKEN}" -H "Content-Type: application/json" --data '{"purge_everything":true}'
