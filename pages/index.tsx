@@ -10,7 +10,6 @@ import colors from '../public/data/colors.json'
 
 /*
  * TODO:
- * Add RTL and some base tests
  * Use virtual list
  * Scroll snap start
  * Installable PWA
