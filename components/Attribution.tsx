@@ -4,7 +4,7 @@ function Attribution() {
       <h2 className="flex flex-col items-center justify-center w-full h-full">
         <span className="text-xl">See you tomorrow!</span>
         <span aria-label=":emojis:" className="mt-4" role="img">
-          🐶🐰🦊🐻🐼🐨🌋
+          🐶🐰🦊🐻🐼🐨
         </span>
       </h2>
       <p className="absolute bottom-0 right-0 p-2 text-xs">
