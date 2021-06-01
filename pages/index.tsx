@@ -10,9 +10,9 @@ import colors from '../public/data/colors.json'
 
 /*
  * TODO:
- * Use virtual list
  * Scroll snap start
  * Installable PWA
+ * Use virtual list
  */
 
 function LandingPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
