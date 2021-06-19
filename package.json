@@ -8,7 +8,7 @@
     "deploy": "gh-pages --branch site --dist out --dotfiles",
     "dev": "next dev",
     "lint": "next lint",
-    "serve": "next start"
+    "start": "next start"
   },
   "dependencies": {
     "next": "11.0.0",
