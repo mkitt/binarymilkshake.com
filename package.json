@@ -4,35 +4,40 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "next build && next export",
-    "deploy": "gh-pages --branch site --dist out --dotfiles",
+    "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
   },
   "dependencies": {
-    "next": "12.0.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "clsx": "2.0.0",
+    "next": "13.4.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "16.11.7",
-    "@types/react": "17.0.33",
-    "autoprefixer": "10.4.0",
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.2",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "gh-pages": "3.2.3",
-    "postcss": "8.3.11",
-    "prettier": "2.4.1",
-    "tailwindcss": "2.2.19",
-    "typescript": "4.4.4"
+    "@tailwindcss/typography": "0.5.9",
+    "@types/node": "20.4.6",
+    "@types/react": "18.2.18",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "eslint-config-prettier": "8.9.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
+    "gh-pages": "5.0.0",
+    "postcss": "8.4.27",
+    "prettier": "3.0.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   },
   "eslintConfig": {
     "extends": [
+      "plugin:tailwindcss/recommended",
       "plugin:jsx-a11y/strict",
+      "plugin:@next/next/recommended",
       "next",
-      "next/core-web-vitals"
+      "next/core-web-vitals",
+      "prettier"
     ]
   },
   "postcss": {

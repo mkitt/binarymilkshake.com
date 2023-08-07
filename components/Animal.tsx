@@ -11,7 +11,7 @@ function Animal(props: PropsType) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       alt={`unsplash/${subject}`}
-      className="object-cover w-full h-full text-xs"
+      className="h-full w-full object-cover text-xs"
       src={unsplash.daily(subject)}
     />
   )

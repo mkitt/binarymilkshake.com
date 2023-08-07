@@ -27,7 +27,7 @@ function LandingPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   useEffect(() => scrollToHash(globalThis.location?.hash), [])
 
   return (
-    <main className="min-h-screen min-w-screen" role="main">
+    <main className="min-h-screen" role="main">
       <Head>
         <title>Binary Milkshake | {thing}</title>
       </Head>

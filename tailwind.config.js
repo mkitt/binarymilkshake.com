@@ -1,41 +1,68 @@
 const plugin = require('tailwindcss/plugin')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   darkMode: 'media',
   theme: {
-    extend: {
-      colors: {
-        'accent-1': '#333',
-      },
-      animation: {
-        fadeIn: 'fadeIn 250ms',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
-        },
-      },
+    container: {
+      center: true,
+    },
+    extend: {},
+    colors: {
+      current: 'currentColor',
+      inherit: 'inherit',
+      transparent: 'transparent',
+      black: '#111',
+      gray: '#808080',
+      silver: '#ddd',
+      slate: '#708090',
+      white: '#fff',
+      magenta: '#ff00ff',
+    },
+    fontWeight: {
+      400: 400,
+      500: 500,
+      600: 600,
+      700: 700,
     },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    plugin(function ({ addComponents }) {
-      const components = {
-        // body: {
-        //   scrollSnapType: 'y mandatory',
-        //   opacity: 1,
-        // },
-        // '.scroll-snap-panel': {
-        //   scrollSnapAlign: 'start',
-        //   scrollPadding: '50%',
-        // },
-      }
-      addComponents(components)
+    require('@tailwindcss/typography'),
+
+    // Custom
+    plugin(function ({ addComponents, addUtilities, theme }) {
+      addComponents({
+        '.mood-dark': {
+          backgroundColor: theme('colors.black'),
+          borderColor: theme('colors.black'),
+          color: theme('colors.white'),
+        },
+        '.mood-light': {
+          backgroundColor: theme('colors.white'),
+          borderColor: theme('colors.white'),
+          color: theme('colors.black'),
+        },
+      })
+      addUtilities({
+        '.tracer': {
+          outline: '1px dotted #ff00ff',
+        },
+        '@supports (-webkit-touch-callout: none)': {
+          '.h-screen': {
+            height: '-webkit-fill-available',
+          },
+        },
+      })
     }),
   ],
 }
