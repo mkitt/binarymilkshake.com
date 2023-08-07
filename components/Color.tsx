@@ -8,7 +8,7 @@ function Color(props: PropsType) {
   const { subject } = props
   return (
     <span
-      className="flex w-full h-full p-2 text-xs"
+      className="flex h-full w-full p-2 text-xs"
       style={{ backgroundColor: subject }}
     >
       {subject}

@@ -1,3 +1,4 @@
+'use client'
 export function scrollToHash(hash: string) {
   const id = hash.replace('#', '')
   const element = document.getElementById(id)

@@ -1,14 +1,17 @@
 !.github
 *.cache
 *.local
+*.local.*
 *.log
 *.map
+*.tsbuildinfo
 .DS_Store
 .next
 .vercel
 .vim
 build
 coverage
+next-env.d.ts
 node_modules
 out
 report.*
