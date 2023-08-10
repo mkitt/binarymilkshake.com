@@ -14,7 +14,17 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      maxWidth: (theme) => ({
+        ...theme('spacing'),
+      }),
+      minHeight: (theme) => ({
+        ...theme('spacing'),
+      }),
+      minWidth: (theme) => ({
+        ...theme('spacing'),
+      }),
+    },
     colors: {
       current: 'currentColor',
       inherit: 'inherit',

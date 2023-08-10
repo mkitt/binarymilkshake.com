@@ -1,13 +1,14 @@
 'use client'
 
 import { scrollToHash } from '@/lib/scroll'
+import clsx from 'clsx'
 import Image from 'next/image'
 import { RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import Paddle from './Paddle'
 
 // -------------------------------------
 
-type PropsType = {
+type PropsType = React.HTMLAttributes<HTMLDivElement> & {
   readonly slides: ReadonlyArray<{
     readonly alt: string
     readonly id: string
@@ -18,9 +19,9 @@ type PropsType = {
 }
 
 export default function Carousel(props: PropsType) {
-  const { slides } = props
+  const { className, slides } = props
   const [currentSlide, setCurrentSlide] = useState(0)
-  const elRef = useRef<HTMLUListElement>(null)
+  const containerRef = useRef<HTMLUListElement>(null)
 
   function next() {
     const nextSlide = slides[currentSlide + 1]
@@ -44,56 +45,63 @@ export default function Carousel(props: PropsType) {
   }
 
   useBindKeys({ next, prev })
-  useScrollSnapEvents({ elRef, onScrollSnapComplete })
+  useScrollSnapEvents({ containerRef, onScrollSnapComplete })
 
   return (
-    <section>
-      <div className="relative">
-        <ul
-          className="flex max-h-[80vh] w-full snap-x snap-mandatory overflow-x-auto scroll-smooth"
-          ref={elRef}
-        >
-          {slides.map((slide, index) => (
-            <li
-              key={`slide-${slide.id}`}
-              id={slide.id}
-              className="flex w-full flex-none snap-start justify-center"
-              aria-current={index === currentSlide}
-            >
-              <Image
-                className="h-auto w-full object-cover"
-                alt={slide.alt}
-                src={slide.src}
-                width={slide.width}
-                height={slide.height}
-              />
-            </li>
-          ))}
-        </ul>
-        <div className="pointer-events-none absolute inset-0 hidden items-center justify-between px-2 lg:flex">
-          <Paddle direction="west" onClick={prev} />
-          <Paddle direction="east" onClick={next} />
-        </div>
-        <span className="absolute bottom-2 right-2 rounded bg-black/50 px-2 py-1 text-xs text-white">
-          {currentSlide + 1} / {slides.length}
-        </span>
-      </div>
-      <ul className="flex w-full flex-wrap justify-center gap-2 px-4 py-2">
+    <section className={clsx('relative', className)}>
+      <ul
+        className="flex w-full snap-x snap-mandatory overflow-x-auto scroll-smooth md:max-h-screen"
+        ref={containerRef}
+      >
         {slides.map((slide, index) => (
-          <li key={`indicator-${slide.id}`}>
-            <button
-              aria-selected={index === currentSlide}
-              data-for={`${slide.id}`}
-              className="group/indicator flex h-12 w-4 items-center justify-center bg-transparent aria-selected:pointer-events-none"
-              onClick={onTabClick}
-              role="tab"
-            >
-              <span className="inline-flex h-2 w-2 rounded-full bg-silver group-aria-selected/indicator:bg-gray" />
-              <span className="sr-only">View {slide.alt}</span>
-            </button>
+          <li
+            key={`slide-${slide.id}`}
+            id={slide.id}
+            className="flex w-full flex-none snap-start justify-center"
+            aria-current={index === currentSlide}
+          >
+            <Image
+              className="h-auto w-full object-contain"
+              alt={slide.alt}
+              src={slide.src}
+              width={slide.width}
+              height={slide.height}
+            />
           </li>
         ))}
       </ul>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-2 opacity-0 lg:opacity-100">
+        <Paddle direction="west" onClick={prev} />
+        <Paddle direction="east" onClick={next} />
+      </div>
+      <div className="absolute inset-x-0 bottom-2 flex min-h-6 justify-center px-2">
+        <div className="hidden max-w-[15.5rem] overflow-hidden rounded-full bg-black/50 px-1 sm:block">
+          <ul
+            className="flex transition-transform"
+            style={{
+              transform: `translateX(${-Math.floor(currentSlide / 10) * 100}%)`,
+            }}
+          >
+            {slides.map((slide, index) => (
+              <li key={`indicator-${slide.id}`}>
+                <button
+                  aria-selected={index === currentSlide}
+                  data-for={`${slide.id}`}
+                  className="group/indicator flex h-6 w-6 items-center justify-center bg-transparent aria-selected:pointer-events-none"
+                  onClick={onTabClick}
+                  role="tab"
+                >
+                  <span className="inline-flex h-2 w-2 rounded-full bg-gray group-aria-selected/indicator:bg-silver" />
+                  <span className="sr-only">View {slide.alt}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <span className="absolute right-2 rounded bg-black/50 px-2 py-1 text-xs text-white">
+          {currentSlide + 1} / {slides.length}
+        </span>
+      </div>
     </section>
   )
 }
@@ -130,15 +138,15 @@ type ScrollSnapEventType = {
 }
 
 type ScrollSnapPropsType = {
-  elRef: RefObject<HTMLElement>
+  containerRef: RefObject<HTMLElement>
   onScrollSnapComplete: (event: ScrollSnapEventType) => void
 }
 
 function useScrollSnapEvents(props: ScrollSnapPropsType) {
-  const { elRef, onScrollSnapComplete } = props
+  const { containerRef, onScrollSnapComplete } = props
 
   useEffect(() => {
-    const el = elRef.current
+    const el = containerRef.current
     if (!el) return
 
     function checkScrollSnapCompletion() {
@@ -156,5 +164,5 @@ function useScrollSnapEvents(props: ScrollSnapPropsType) {
     return () => {
       el.removeEventListener('scroll', checkScrollSnapCompletion)
     }
-  }, [elRef, onScrollSnapComplete])
+  }, [containerRef, onScrollSnapComplete])
 }
