@@ -1,23 +1,19 @@
 import { Metadata } from 'next'
-import animals from '@/public/data/animals.json'
 import Carousel from '@/components/Carousel'
+import slides from './slides.json'
 
 export const metadata: Metadata = {
   title: 'Winter Park, Colorado A-Frame',
-  description: 'Animals of the day for AK.',
+  description: 'The A-Frame in Winter Park, Colorado',
 }
 
-const getSlides = () => {
-  const width = 1536
-  const height = 2040
-  return animals.slice(0, 20).map((animal, i) => ({
-    alt: animal,
-    id: animal.toLowerCase().replace(/\s/g, '-'),
-    src: `https://source.unsplash.com/${(i + 1) % 4 === 0 ? height : width}x${
-      (i + 1) % 4 === 0 ? width : height
-    }/weekly?${animal}`,
-    width,
-    height,
+function getSlides() {
+  return slides.map((slide) => ({
+    alt: 'Slide ' + slide.filename.replace(/\.jpg$/, '').replace(/-/g, ' '),
+    id: slide.filename,
+    src: `https://assets.binarymilkshake.com/colorado/the-aframe/${slide.filename}`,
+    width: slide.orientation === 'landscape' ? 2048 : 1536,
+    height: slide.orientation === 'landscape' ? 1536 : 2048,
   }))
 }
 

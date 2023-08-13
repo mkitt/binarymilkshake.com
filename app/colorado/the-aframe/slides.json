@@ -1,0 +1,21 @@
+[
+  { "filename": "01-back-deck-summer.jpg", "orientation": "portrait" },
+  { "filename": "02-fireplace.jpg", "orientation": "portrait" },
+  { "filename": "03-living-room.jpg", "orientation": "portrait" },
+  { "filename": "04-kitchen-and-dining.jpg", "orientation": "portrait" },
+  { "filename": "05-kitchen-stair-storage.jpg", "orientation": "portrait" },
+  { "filename": "06-kitchen-and-dining.jpg", "orientation": "portrait" },
+  { "filename": "07-bedroom-and-loft-view-1.jpg", "orientation": "portrait" },
+  { "filename": "08-bedroom-and-loft-view-2.jpg", "orientation": "portrait" },
+  { "filename": "09-office-loft-view-1.jpg", "orientation": "portrait" },
+  { "filename": "10-office-loft-view-2.jpg", "orientation": "portrait" },
+  { "filename": "11-bathroom-shower-view-1.jpg", "orientation": "portrait" },
+  { "filename": "12-bathroom-shower-view-2.jpg", "orientation": "portrait" },
+  { "filename": "13-powder-room.jpg", "orientation": "portrait" },
+  { "filename": "14-entry-closet.jpg", "orientation": "portrait" },
+  { "filename": "15-street-view.jpg", "orientation": "portrait" },
+  { "filename": "16-back-deck-summer.jpg", "orientation": "portrait" },
+  { "filename": "17-view-from-deck.jpg", "orientation": "portrait" },
+  { "filename": "18-fireplace.jpg", "orientation": "landscape" },
+  { "filename": "19-the-living-room.jpg", "orientation": "landscape" }
+]
