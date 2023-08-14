@@ -45,8 +45,9 @@ export default async function Page() {
             large back deck. Property backs up to open space with the YMCA of
             the Rockies accessible right out the back door to the west, 5 min
             walk to trails for hiking, snowshoeing, mtn biking, x-country
-            skiing. Also backs up to 6th hole fare way of The Ridge course on
-            Pole Creek Golf Course.
+            skiing. 15 min to Winter Park Resort or Ski Granby Ranch. Also backs
+            up to 6th hole fare way of The Ridge course on Pole Creek Golf
+            Course.
           </p>
 
           <ul>
@@ -58,6 +59,7 @@ export default async function Page() {
             <li>couch downstairs also could sleep 1 (twin bed sized)</li>
             <li>laundry in entry closet</li>
             <li>ski storage in entry</li>
+            <li>wood stove (primary heat source)</li>
             <li>2 bathrooms</li>
             <li>- 1 is a powder room with commode/sink</li>
             <li>- 1 has full size shower + sink</li>
@@ -65,12 +67,15 @@ export default async function Page() {
             <li>outdoor fire pit</li>
           </ul>
 
-          <ul>
-            <li>includes century link internet</li>
-            <li>plowing</li>
-            <li>wood for wood stove</li>
-            <li>trash (we share with neighbor)</li>
-          </ul>
+          <div>
+            <p>includes:</p>
+            <ul>
+              <li>century link internet</li>
+              <li>plowing</li>
+              <li>wood for wood stove</li>
+              <li>trash (we share with neighbor)</li>
+            </ul>
+          </div>
 
           <div>
             <p>not included:</p>
