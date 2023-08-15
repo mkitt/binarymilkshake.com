@@ -89,6 +89,15 @@ export default async function Page() {
               </li>
             </ul>
           </div>
+          <p className="flex flex-col">
+            <span>email:</span>
+            <a
+              className="underline hover:text-gray"
+              href="mailto:amy.kitt@gmail.com"
+            >
+              amy.kitt@gmail.com
+            </a>
+          </p>
         </div>
       </section>
     </main>
