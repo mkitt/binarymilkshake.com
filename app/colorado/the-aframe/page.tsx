@@ -30,10 +30,10 @@ export default async function Page() {
         <div className="flex flex-col gap-4 p-4 text-sm">
           <div>
             <h2 className="text-xl font-600">
-              6 month Seasonal Rental - Sleeps 2-5
+              12 month Seasonal Rental - Sleeps 2-5
             </h2>
-            <h3 className="hidden text-lg font-600">
-              12 month rental starting January 1st | $2,000/mo | Furnished
+            <h3 className="text-lg font-600">
+              Starting January 1st | $2,000/mo | Furnished
             </h3>
             <p>
               <strong>232 Marble Road, Tabernash CO 80478</strong>
