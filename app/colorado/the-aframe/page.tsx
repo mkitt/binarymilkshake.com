@@ -32,21 +32,20 @@ export default async function Page() {
             <h2 className="text-xl font-600">
               6 month Seasonal Rental - Sleeps 2-5
             </h2>
-            <h3 className="text-lg font-600">
-              Nov 1 thru April 2024 | $2,000/mo | Furnished
+            <h3 className="hidden text-lg font-600">
+              12 month rental starting January 1st | $2,000/mo | Furnished
             </h3>
             <p>
               <strong>232 Marble Road, Tabernash CO 80478</strong>
             </p>
           </div>
-
           <p>
             Scandinavian design Aframe with wood stove, cozy living area and
             large back deck. Property backs up to open space with the YMCA of
             the Rockies accessible right out the back door to the west, 5 min
             walk to trails for hiking, snowshoeing, mtn biking, x-country
             skiing. 15 min to Winter Park Resort or Ski Granby Ranch. Also backs
-            up to 6th hole fare way of The Ridge course on Pole Creek Golf
+            up to 6th hole fairway of The Ridge course on Pole Creek Golf
             Course.
           </p>
 
@@ -73,7 +72,6 @@ export default async function Page() {
               <li>century link internet</li>
               <li>plowing</li>
               <li>wood for wood stove</li>
-              <li>trash (we share with neighbor)</li>
             </ul>
           </div>
 
@@ -87,6 +85,7 @@ export default async function Page() {
                 tv service (we use streaming service through apple tv, tv in
                 photos will stay)
               </li>
+              <li>trash + recycling</li>
             </ul>
           </div>
           <p className="flex flex-col">

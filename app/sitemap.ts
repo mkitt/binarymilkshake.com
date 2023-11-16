@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: 'https://binarymilkshake.com/the-aframe',
+      url: 'https://binarymilkshake.com/colorado/the-aframe',
       lastModified: new Date(),
     },
   ]
