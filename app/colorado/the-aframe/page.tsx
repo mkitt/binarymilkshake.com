@@ -26,79 +26,82 @@ export default async function Page() {
         <p>Winter Park, Colorado</p>
       </header>
       <Carousel slides={slides} />
-      <section className="mt-8 flex max-w-4xl">
-        <div className="flex flex-col gap-4 p-4 text-sm">
-          <div>
-            <h2 className="text-xl font-600">
-              12 month Seasonal Rental - Sleeps 2-5
-            </h2>
-            <h3 className="text-lg font-600">
-              Starting January 1st | $2,000/mo | Furnished
-            </h3>
+      {false && (
+        <section className="mt-8 flex max-w-4xl">
+          <div className="flex flex-col gap-4 p-4 text-sm">
+            <div>
+              <h2 className="text-xl font-600">
+                12 month Seasonal Rental - Sleeps 2-5
+              </h2>
+              <h3 className="text-lg font-600">
+                Starting January 1st | $2,000/mo | Furnished
+              </h3>
+              <p>
+                <strong>232 Marble Road, Tabernash CO 80478</strong>
+              </p>
+            </div>
             <p>
-              <strong>232 Marble Road, Tabernash CO 80478</strong>
+              Scandinavian design Aframe with wood stove, cozy living area and
+              large back deck. Property backs up to open space with the YMCA of
+              the Rockies accessible right out the back door to the west, 5 min
+              walk to trails for hiking, snowshoeing, mtn biking, x-country
+              skiing. 15 min to Winter Park Resort or Ski Granby Ranch. Also
+              backs up to 6th hole fairway of The Ridge course on Pole Creek
+              Golf Course.
+            </p>
+
+            <ul>
+              <li>1080 sq ft</li>
+              <li>1 bedroom with queen bed</li>
+              <li>
+                office on upper level has full size pull out couch with
+                featherbed
+              </li>
+              <li>couch downstairs also could sleep 1 (twin bed sized)</li>
+              <li>laundry in entry closet</li>
+              <li>ski storage in entry</li>
+              <li>wood stove (primary heat source)</li>
+              <li>2 bathrooms</li>
+              <li>- 1 is a powder room with commode/sink</li>
+              <li>- 1 has full size shower + sink</li>
+              <li>large backyard deck with grill</li>
+              <li>outdoor fire pit</li>
+            </ul>
+
+            <div>
+              <p>includes:</p>
+              <ul>
+                <li>century link internet</li>
+                <li>plowing</li>
+                <li>wood for wood stove</li>
+              </ul>
+            </div>
+
+            <div>
+              <p>not included:</p>
+              <ul>
+                <li>
+                  utilities (electric - we will leave in our name and bill you)
+                </li>
+                <li>
+                  tv service (we use streaming service through apple tv, tv in
+                  photos will stay)
+                </li>
+                <li>trash + recycling</li>
+              </ul>
+            </div>
+            <p className="flex flex-col">
+              <span>email:</span>
+              <a
+                className="underline hover:text-gray"
+                href="mailto:amy.kitt@gmail.com"
+              >
+                amy.kitt@gmail.com
+              </a>
             </p>
           </div>
-          <p>
-            Scandinavian design Aframe with wood stove, cozy living area and
-            large back deck. Property backs up to open space with the YMCA of
-            the Rockies accessible right out the back door to the west, 5 min
-            walk to trails for hiking, snowshoeing, mtn biking, x-country
-            skiing. 15 min to Winter Park Resort or Ski Granby Ranch. Also backs
-            up to 6th hole fairway of The Ridge course on Pole Creek Golf
-            Course.
-          </p>
-
-          <ul>
-            <li>1080 sq ft</li>
-            <li>1 bedroom with queen bed</li>
-            <li>
-              office on upper level has full size pull out couch with featherbed
-            </li>
-            <li>couch downstairs also could sleep 1 (twin bed sized)</li>
-            <li>laundry in entry closet</li>
-            <li>ski storage in entry</li>
-            <li>wood stove (primary heat source)</li>
-            <li>2 bathrooms</li>
-            <li>- 1 is a powder room with commode/sink</li>
-            <li>- 1 has full size shower + sink</li>
-            <li>large backyard deck with grill</li>
-            <li>outdoor fire pit</li>
-          </ul>
-
-          <div>
-            <p>includes:</p>
-            <ul>
-              <li>century link internet</li>
-              <li>plowing</li>
-              <li>wood for wood stove</li>
-            </ul>
-          </div>
-
-          <div>
-            <p>not included:</p>
-            <ul>
-              <li>
-                utilities (electric - we will leave in our name and bill you)
-              </li>
-              <li>
-                tv service (we use streaming service through apple tv, tv in
-                photos will stay)
-              </li>
-              <li>trash + recycling</li>
-            </ul>
-          </div>
-          <p className="flex flex-col">
-            <span>email:</span>
-            <a
-              className="underline hover:text-gray"
-              href="mailto:amy.kitt@gmail.com"
-            >
-              amy.kitt@gmail.com
-            </a>
-          </p>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   )
 }
