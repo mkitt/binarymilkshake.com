@@ -87,11 +87,11 @@ export default function Carousel(props: PropsType) {
                 <button
                   aria-selected={index === currentSlide}
                   data-for={`${slide.id}`}
-                  className="group/indicator flex h-6 w-6 items-center justify-center bg-transparent aria-selected:pointer-events-none"
+                  className="group/indicator flex size-6 items-center justify-center bg-transparent aria-selected:pointer-events-none"
                   onClick={onTabClick}
                   role="tab"
                 >
-                  <span className="inline-flex h-2 w-2 rounded-full bg-gray group-aria-selected/indicator:bg-silver" />
+                  <span className="inline-flex size-2 rounded-full bg-gray group-aria-selected/indicator:bg-silver" />
                   <span className="sr-only">View {slide.alt}</span>
                 </button>
               </li>
